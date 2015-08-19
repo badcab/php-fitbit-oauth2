@@ -9,11 +9,15 @@ require '../keys.php';
 //these items are classes being passed in
 // Consumer key
 
-$oAppCustomer = new AppCustomer($conskey, $conssec);
+$oAppCustomer = new AppCustomer( $conskey, $conssec ); //these values are contained in keys.php
 
 //oAuth1aUserToken  ||  oAuth2UserToken
 $ConnectionData = new ConnectionData( $oAppCustomer );
 
-$connection = new Oauth1a($ConnectionData);
+$connection = new Oauth1a( $ConnectionData );//this can be switched
+
+//set the token
+//get the steps
+//
 
 //should add an interface for the endpoints

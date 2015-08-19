@@ -1,10 +1,10 @@
 <?php
 
 interface ApiInterface {
-	public function getYearSteps(array $token = [], $oauth2 = TRUE);
+	public function getYearSteps(array $token = []);
 	public function getRangeSteps(array $token = [], DateTme $start, DateTme $end, $oauth2 = TRUE);
 
-	public function getYearDistance(array $token = [], $oauth2 = TRUE);
+	public function getYearDistance(array $token = []);
 	public function getRangeDistance(array $token = [], DateTme $start, DateTme $end, $oauth2 = TRUE);
 
 	public function migrateTokenFromOauth1aToOauth2(array $oauth1aToken = []);
