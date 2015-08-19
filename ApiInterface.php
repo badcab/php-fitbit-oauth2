@@ -10,8 +10,9 @@ interface ApiInterface {
 	public function migrateTokenFromOauth1aToOauth2(array $oauth1aToken = []);
 
 	public function getUserToken($input);
+	public function setUserToken($input, $clear_cache = TRUE);
 
-	public function getAppKeys();
+	private $ConnectionData;
 }
 
 class ConnectionData {
@@ -22,10 +23,11 @@ class ConnectionData {
 	public $distanceHistory ;
 	public $uniqueIdentifyer ;
 
-	__construct( $oAppCustomer, $oUserToken ){
+	__construct( $oAppCustomer, $oUserToken = NULL ){
 		$this->uniqueIdentifyer = NULL;
 		$this->stepHistory = new MonthsOfYear();
 		$this->distanceHistory = new MonthsOfYear();
+		$this->use_oAuth2 = NULL; //default full in case it needs to be set latter
 
 		if ($oUserToken instanceof oAuth1aUserToken) {
 			$this->oUserToken = $oUserToken ;
